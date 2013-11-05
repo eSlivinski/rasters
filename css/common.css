@@ -1,0 +1,269 @@
+body {
+   font-family: 'Open Sans', sans-serif;
+   background-color:#333;
+   padding-top: 0;
+   padding-bottom: 0;
+   padding-left: 0;
+   padding-right: 0;
+   font-size: 18px;
+}
+a {
+  color:#333;
+}
+.navbar {
+  max-height: 40px;
+  overflow: visible;
+  padding-top: 6px;
+  padding-bottom: 0;
+  margin-left:10px;
+  margin-right:0px;
+  width:415px;
+}
+.container-fluid {
+  padding-right:0;
+  padding-left: 0;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+  background-color: transparent;
+}
+.modal {
+  left:0;
+  right:0;
+  margin-left: 0;
+  width:85%;
+  max-width: 600px;
+  position: absolute;
+  margin:auto;
+}
+.leaflet-right {
+  right:60px;
+}
+#map {
+  height:100%;
+  display:inline;
+  position: absolute;
+  background-color: black;
+}
+#sidebar {
+  position: fixed;
+  opacity:1;
+  right:0;
+  top:0;
+  bottom:0;
+  background-color: #0D4D8C;
+  width:60px;
+  height:100%;
+  box-shadow: -3px 0 5px #fff;
+  z-index: 3000;
+}
+.zoomControl {
+
+  height:30px;
+  width:60px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    vertical-align: center;
+  background-color: black;
+  display:inline-block;
+  text-align: center;
+  margin-top:0px;
+}
+.zoomControl > a:hover {
+  color: #fff;
+}
+.zoomButton {
+
+  font:bold 39px/41px Arial, Helvetica, sans-serif;
+  text-align: center;
+  color:#aaa;
+}
+#zoomOut {
+  font:bold 53px/32px Arial, Helvetica, sans-serif;
+}
+#out {
+  border-top:2px solid #777;
+}
+.button {
+  height:60px;
+  display:inline-block;
+  text-align: center;
+}
+.button#home {
+  background-color: #ED811D;
+}
+.button#info {
+  background-color: #459973;
+}
+.button#legend {
+  background-color: #1E2647;
+}
+.button#settings {
+  background-color: #49BAB8;
+}
+.btn {
+  padding: 4px 8px;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-color: transparent;
+  border-bottom-color: transparent;
+  border-radius: 0;
+  -webkit border-radius: 0;
+  -moz border-radius: 0;
+}
+#collapse > a {
+  color: #777;
+}
+.btn#home {
+    height: 60px;
+  padding-top: 15px;
+  margin-right: 0px;
+  margin-top:0px;
+  vertical-align: center;
+  float: left;
+
+  width: 100%;
+  text-align: left;
+  background-color: #ED811D;
+}
+.btn > a:hover {
+  color: #fff;
+}
+.btn > a > i:hover {
+  color: #fff;
+}
+.btn#info {
+    height: 60px;
+  padding-top: 15px;
+  margin-right: 0px;
+  margin-top:0px;
+  vertical-align: center;
+  float: left;
+
+  width: 100%;
+  text-align: left;
+  background-color: #459973;
+}
+.btn#layers {
+    height: 60px;
+  padding-top: 15px;
+  margin-right: 0px;
+  margin-top:0px;
+  vertical-align: center;
+  float: left;
+
+  width: 100%;
+  text-align: left;
+  background-color: #aed1cb;
+}
+
+.btn#settings {
+
+    height: 60px;
+  padding-top: 15px;
+  margin-right: 0px;
+  margin-top:0px;
+  vertical-align: center;
+  float: left;
+
+  width: 100%;
+  text-align: left;
+  background-color: #49BAB8;
+}
+
+.btn#collapse {
+  display:none;
+  padding: 6px 9px;
+  margin-top:-1px;
+  margin-left: 30px;
+  background-color: black;
+  float:right;
+}
+#collapseMenu {
+  background-color:black;
+  width:100%;
+  display:none;
+}
+.nav-list > li > a {
+  text-shadow: none;
+}
+li > a {
+  color: white;
+}
+a:hover {
+  text-decoration: none;
+}
+.legend {
+  -webkit-border-radius:9px;
+  -moz-border-radius:9px;
+  border-radius:9px;
+  line-height: 20px;
+  color: #555;
+  text-align: center;
+  font-size: 18px;
+  background-color:white;
+  padding:10px;
+  margin: 0px;
+  opacity: .8;
+  width: 140px;
+}
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.9;
+}
+i {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  vertical-align: 0;
+}
+#footerInner {
+  width: 258px;
+  margin: 0 auto;
+  margin-top: -12px;
+}
+#footerText {
+  color: #111;
+  font-size: 10px;
+}
+.modal-footer {
+  text-align: center;
+}
+@media screen and (max-width: 1280px) {
+  #out {
+    border-top:2px solid #777;
+  }
+}
+@media screen and (max-width: 550px) {
+  #sidebar {
+    width:100%;
+    height:60px;
+    box-shadow: 0 3px 5px #fff;
+  }
+  .btn#info {
+    display:none;
+  }
+  .btn#home {
+    display:none;
+  }
+  .btn#layers {
+    display:none;
+  }
+  .btn#settings {
+    display:none;
+  }
+  .btn#collapse {
+    display: inline-block;
+  }
+  #out {
+    margin-left:-4px;
+    border-top:0;
+    border-left:2px solid #777;
+  }
+  #in {
+    margin-left:1px;
+  }
+}

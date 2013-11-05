@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>Manufacturing Employment Density</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=9'>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'/>
+    <link href='bootstrap/css/bootstrap.css' rel='stylesheet' type='text/css' />
+    <link href='css/font-awesome.min.css' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+    <link href="css/overcast/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" type="text/css"/>
+    <link href='css/common.css' rel='stylesheet' type='text/css' />
+    <link href='css/main.css' rel='stylesheet' type='text/css' />
+    <!--<script src='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.js'></script>
+    <link href='http://api.tiles.mapbox.com/mapbox.js/v0.6.7/mapbox.css' rel='stylesheet' />-->
+
+  </head>
+  <body>
+  <div class="container-fluid">
+    <!--<script>mapbox.auto('map', 'eslivi.311_COLOR');</script>-->
+    <div id="map"></div>
+    <div id="sidebar">
+      <div class="zoomControl">
+        <a href="#" title="Zoom In" class="zoomButton" id="zoomIn">+</a>
+      </div>
+      <div class="zoomControl" id="out">
+        <a href="#" title="Zoom Out" class="zoomButton" id="zoomOut">-</a>
+      </div>
+      <div class="btn" id="home">
+        <a href="http://midamericafreight.org" target="_blank" title="Home" id="home"><i class="icon-home icon-2x"></i><br>Home</a>
+      </div>
+      <div class="btn" id="info">
+        <a href="#mapInfo" title="Information" id="info" data-toggle="modal"><i class="icon-info-sign icon-2x"></i><br>Info</a>
+      </div>
+      <div class="btn" id="settings">
+        <a href="#manuChooser" title="Settings" id="settings" data-toggle="modal"><i class="icon-cogs icon-2x"></i><br>Settings</a>
+      </div>
+      <div class="btn" id="layers">
+        <a href="#mapSettings" title="Layers" id="layers" data-toggle="modal"><i class="icon-globe icon-2x"></i><br>Options</a>
+      </div>
+      <div class="btn" id="collapse">
+        <a href="#" title="More"><i class="icon-reorder icon-2x"></i></a>
+      </div>
+      <div id="collapseMenu">
+        <ul class="nav nav-list">
+          <li><a href="#"><i class="icon-home icon-large"></i> Home</a></li>
+          <li><a href="#mapInfo" title="Information" id="info" data-toggle="modal"><i class="icon-info-sign icon-large"></i> Information</a></li>
+          <li><a href="#" id="legendButton"><i class="icon-key icon-large"></i> 
+          Show Legend & Controls</a></li>
+          <li><a href="#layerPanel" title="Layers" id="layers" data-toggle="modal"><i class="icon-globe icon-large"></i>
+          Layers</a></li>
+          <li><a href="#mapSettings" title="Settings" id="settings" data-toggle="modal"><i class="icon-cogs icon-large"></i> Settings</a></li>
+        </ul>
+    </div>
+
+  </div><!--/.fluid-container-->
+  <div class="modal fade" id="mapInfo">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Information</h3>
+    </div>
+    <div class="modal-body">
+      <p>This map displays the density of businesses that manufacture various types of goods.  The density was derived by running a kernal density analysis of ESRI's business analyst dataset.</p>
+    </div>
+    <div class="modal-footer">
+      <img src='css/img/MAFC_logo_Small.png' alt='logo' height='105 px' width = '226px'</>    <img src= 'css/img/CFIRE-Logo-Transparent.png' alt='CFIRE'height='105 px' width = '88 px'><br>
+      <a id="footerText" href="http://midamericafreight.org">© Mid America Freight Coalition, 2013</a>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="mapSettings">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Map Options</h3>
+    </div>
+    <div class="modal-body">
+      <p>Select any of the following overlay options:</p>
+        <tr>
+          <td><input type="checkbox" name="Corridors" id="corridorsCheckbox"/></td><td>&nbsp&nbspCorridors</td><br>
+          <td><input type="checkbox" name="Rails" id="railsCheckbox"/></td><td>&nbsp&nbspClass 1 Rails</td><br>
+          <!--<td><input type="checkbox" name="Rivers" id="option5"/></td><td>Rivers</td><br>-->
+          <td><input type="checkbox" name="Metros" id="metrosCheckbox"/></td><td>&nbsp&nbspMetros</td><br>
+          <td><input type="checkbox" name="Labels" id="labelsCheckbox"/></td><td>&nbsp&nbspMetro Labels</td><br>
+          <td><input type="checkbox" name="Rivers" id="riversCheckbox"/></td><td>&nbsp&nbspRivers</td><br>
+          <br><p>Map Controls:</p>
+          <label class="radio">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            Show Legend
+          </label>
+          <label class="radio">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            Hide Legend
+          </label>
+          
+        </tr>
+
+      </div
+
+      
+    </div>
+    <div class="modal-footer">
+      <img src='css/img/MAFC_logo_Small.png' alt='logo' height='105 px' width = '226px'</>    <img src= 'css/img/CFIRE-Logo-Transparent.png' alt='CFIRE'height='105 px' width = '88 px'><br>
+      <a id="footerText" href="http://midamericafreight.org">© Mid America Freight Coalition, 2013</a>
+    </div>
+  </div>
+
+
+
+<div id="manuChooser" class="modal hide fade">
+    <div class="modal-header">
+
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>Manufacturing Density</h3>
+    </div>
+    <div class="modal-body" id="stateChooserMap"><p>Select a Manufacturing Subsector</p>
+      <form id= "mapForm" name="mapForm" class="table" method="post"action="">
+        
+      <select name="table" id="table">
+        <option value="311" id="food">Food</option>
+        <option value="316" id="leather">Leather and Allied Product</option>
+        <option value="321" id="wood">Wood Product</option>
+        <option value="322" id="paper">Paper</option>
+        <option value="323" id="printing">Printing and Related Support Activies</option>
+        <option value="325" id="chemical">Chemical</option>
+        <option value="326" id="plastic">Plastics and Rubber Products</option>
+        <option value="327" id="nonmetalic">Nonmetalic Mineral Product</option>
+        <option value="331" id="primary">Primary Metal</option>
+        <option value="332" id="fabricated">Fabricated Metal Product</option>
+        <option value="333" id="machinery">Machinery</option>
+        <option value="334" id="computer">Computer and Electronic Product</option>
+        <option value="335" id="electrical">Electrical Equiptment, Appliance, and Component</option>
+        <option value="336" id="transportation">Transportation Equiptment</option>
+        <option value="337" id="furniture">Furniture and Related Product</option>
+        <option value="339" id="misc">Miscellaneous</option>
+        <option value="FG" id="FG">Freight Generators</option>
+        <option value="WHDC" id="misc">Warehouses and Distribution Centers</option>
+        <option value="default" id="default" selected="selected"> </option>
+      </select>
+    </form>
+    <div class="pbarbox">
+    <div class="pbar"></div>
+    </div>
+
+    </div>
+      
+    <div class="modal-footer">
+      <img src='css/img/MAFC_logo_Small.png' alt='logo' height='105 px' width = '226px'</>    <img src= 'css/img/CFIRE-Logo-Transparent.png' alt='CFIRE'height='105 px' width = '88 px'><br>
+      <a id="footerText" href="http://midamericafreight.org">© Mid America Freight Coalition, 2013</a>
+    </div>
+  </div>
+
+  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+  <!--[if lt IE 9]>
+    <script src="bootstrap/js/html5shiv.js"></script>
+  <![endif]-->
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+  <script src='bootstrap/js/bootstrap.min.js'></script>
+  <script src="js/d3.v3.min.js"></script>
+  <script src="js/topojson.js"></script>
+  <script src="js/TileLayerGreyScale.js"></script>
+  <script src='js/simple_statistics.js'></script>
+  <script src="js/jquery-ui-1.10.2.custom.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+  <script src="js/common.js"></script>
+
+  </body>
+</html>
